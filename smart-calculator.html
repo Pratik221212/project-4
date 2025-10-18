@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Calculator</title>
+</head>
+
+<body>
+    <script>
+
+        // Arithmatic
+        function arithmeticCalculator() {
+            const a = Number(prompt("Enter first number:"));
+            const b = Number(prompt("Enter second number:"));
+            const op = prompt("Enter operator (+, -, *, /, %):");
+            let ans;
+
+            if (op === "+") {
+                ans = a + b;
+            }
+            else if (op === "-") {
+                ans = a - b;
+            }
+            else if (op === "*") {
+                ans = a * b;
+            }
+            else if (op === "/") {
+                if (b !== 0) {
+                    ans = a / b;
+                } else {
+                    ans = "Cannot divide by zero";
+                }
+            }
+            else if (op === "%") {
+                ans = a % b;
+            }
+            else {
+                ans = "Invalid operator";
+            }
+
+            console.log(`Result of ${a} ${op} ${b} = ${ans}`);
+        }
+
+        // Square & Cube 
+        function squareCube() {
+            const n = Number(prompt("Enter a number:"));
+            const square = n * n;
+            const cube = n * n * n;
+
+            console.log(`Square of ${n} = ${square}`);
+            console.log(`Cube of ${n} = ${cube}`);
+        }
+
+        // Factoraial 
+        function factorialCalc() {
+            const n = Number(prompt("Enter A Number:"));
+
+            if (isNaN(n) || n < 0) {
+                console.log("Please Enter Positive Number...");
+            }
+            else {
+                let fact = 1;
+                for (let i = 1; i <= n; i++) {
+                    fact = fact * i;
+                }
+                console.log(`The factorial of ${n} is: ${fact}`);
+            }
+        }
+
+        // Even & odd 
+        function evenOdd() {
+            const n = Number(prompt("Enter a number:"));
+            if (isNaN(n)) {
+                console.log("Invalid input! Please enter a number.");
+            } else if (n % 2 === 0) {
+                console.log(`${n} is Even`);
+            } else {
+                console.log(`${n} is Odd`);
+            }
+        }
+
+        // Menu driven 
+        function menu() {
+            let choice;
+
+            do {
+                choice = Number(prompt(
+                    `----- SMART CALCULATOR -----
+            1. Arithmetic Operations
+            2. Square & Cube Operations
+            3. Factorial Of Number 
+            4. Even Or Odd Number 
+            5. Exit
+
+            Enter Your Choice :`
+                ));
+
+                if (choice === 1) {
+                    arithmeticCalculator();
+                }
+                else if (choice === 2) {
+                    squareCube();
+                }
+                else if (choice === 3) {
+                    factorialCalc();
+                }
+                else if (choice === 4) {
+                    evenOdd();
+                }
+                else if (choice === 5) {
+                    console.log("You Exit The Calculator...");
+                }
+                else {
+                    console.log("Invalid choice ! Please Enter Number From 1 To 5.");
+                }
+
+            } while (choice !== 5);
+        }
+
+        menu();
+
+    </script>
+</body>
+
+</html>
